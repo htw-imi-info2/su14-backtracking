@@ -2,11 +2,11 @@ package permutations.v1_dww;
 
 /**
  * Überschrift: Permutations
- * Beschreibung: Example of an application that cannot be solved by
- * iteration, recursion is necessary because you don't
- * know how many nested loops you need
+ * Beschreibung: Example of an application that is more
+ * elegantly solved with recursion than iteration
+ * (comment edited by B. Kleinen, copied from DWW's site)
  * Copyright: Copyright (c) 2003-04-14
- * Organisation: FHTW
+ * Organisation: HTW
  * @author Debora Weber-Wulff
  * @version 1.16
  */

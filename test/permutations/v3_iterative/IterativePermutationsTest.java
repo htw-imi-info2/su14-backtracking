@@ -1,4 +1,5 @@
-package permutations.v2_function;
+package permutations.v3_iterative;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -7,10 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import permutations.v3_iterative.Factorial;
 
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
@@ -18,20 +16,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class PermutationsTest {
+public class IterativePermutationsTest {
+
     Permutations permutations = new Permutations();
 
     @ParameterizedTest
     @MethodSource("permutationsProvider")
     public void testPermutations(String input, String[] expectedPermutations){
         List<String> actualPermutations = permutations.permutations(input);
-        assertEquals(expectedPermutations.length,actualPermutations.size());
-        Set<String> expected = new HashSet<>(Arrays.asList(expectedPermutations));
-        Set<String> actual = new HashSet<>(actualPermutations);
-
-        for (String p : expected) {
-            assertTrue(actual.contains(p)," permutation missing: "+p);
-        }
+        List<String> expected = new ArrayList<String>(List.of(expectedPermutations));
+        Collections.sort(actualPermutations);
+        Collections.sort(expected);
+        String actualString = String.join(", ", actualPermutations);
+        String expectedString = String.join(", ", expected);
+        assertEquals(expectedString,actualString);
+      //  Set<String> expected = new HashSet<>(Arrays.asList(expectedPermutations));
+        assertIterableEquals(expected,actualPermutations);
     }
 
 
