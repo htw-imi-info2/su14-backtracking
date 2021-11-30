@@ -32,8 +32,7 @@ public class IterativePermutationsTest {
 
 
     @ParameterizedTest
-    //@ValueSource(strings = { "Apfel",  "Apfel6",  "Methode", "Methode8", "Mandarine", "Mandarin10" })
-    @ValueSource(strings = { "Apfel",  "Apfel6",  "Methode", "Methode8", "Mandarine", "Mandarin10", "Mandarine11", "Mandarinen12" })
+    @ValueSource(strings = { "Apfel",  "Apfel6",  "Methode", "Methode8", "Mandarine", "Mandarin10", "Mandarine11" })
     public void testLongerPermutations(String input){
         //assertEquals(factorial(11),permutations.permutations("stringmit11"));
         List<String> actual = permutations.permutations(input);
